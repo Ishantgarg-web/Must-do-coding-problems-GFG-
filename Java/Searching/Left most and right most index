@@ -1,0 +1,75 @@
+class Solution {
+    public static int getFirst(long arr[],int low,int high,long x)
+    {
+        while(low<=high)
+        {
+            int mid=(low+high)/2;
+            if(arr[mid]>x)
+            {
+                high=mid-1;
+            }
+            else if(arr[mid]<x)
+            {
+                low=mid+1;
+            }
+            else
+            {
+                if(mid==0 || arr[mid]!=arr[mid-1])
+                {
+                    return mid;
+                }
+                else
+                {
+                    high=mid-1;
+                }
+            }
+        }
+        return -1;
+    }
+    public static int getSecond(long arr[],int low,int high,long x)
+    {
+        while(low<=high)
+        {
+            int mid=(low+high)/2;
+            if(arr[mid]>x)
+            {
+                high=mid-1;
+            }
+            else if(arr[mid]<x)
+            {
+                low=mid+1;
+            }
+            else
+            {
+                if(mid==arr.length-1 || arr[mid]!=arr[mid+1])
+                {
+                    return mid;
+                }
+                else
+                {
+                    low=mid+1;
+                }
+            }
+        }
+        return -1;
+    }
+    public pair indexes(long v[], long x)
+    {
+        // Your code goes here
+        long first=getFirst(v,0,v.length-1,x);
+        
+        if(first!=-1)
+        {
+            long second=getSecond(v,0,v.length-1,x);
+            pair p=new pair(first,second);
+            //p.first=first;
+            //p.second=second;
+            return p;
+        }
+        pair p=new pair(-1,-1);
+            //p.first=-1;
+            //p.second=-1;
+        
+        return p;
+    }
+}
