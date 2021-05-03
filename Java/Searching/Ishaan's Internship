@@ -1,0 +1,12 @@
+class Solution
+{
+    int getCandidate(int n, int k){
+        //complete the function here
+        int i=1;
+        while((int)Math.pow(k,i)<=n)
+        {
+            i++;
+        }
+        return (int)Math.pow(k,i-1);
+    }
+}
