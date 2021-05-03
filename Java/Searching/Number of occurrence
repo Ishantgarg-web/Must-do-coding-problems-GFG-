@@ -1,0 +1,66 @@
+class Solution {
+    public static int getFirst(int arr[],int low,int high,int x)
+    {
+        while(low<=high)
+        {
+            int mid=(low+high)/2;
+            if(arr[mid]>x)
+            {
+                high=mid-1;
+            }
+            else if(arr[mid]<x)
+            {
+                low=mid+1;
+            }
+            else
+            {
+                if(mid==0 || arr[mid-1]!=arr[mid])
+                {
+                    return mid;
+                }
+                else
+                {
+                    high=mid-1;
+                }
+            }
+        }
+        return -1;
+    }
+    public static int getSecond(int arr[],int low,int high,int x)
+    {
+        while(low<=high)
+        {
+            int mid=(low+high)/2;
+            if(arr[mid]>x)
+            {
+                high=mid-1;
+            }
+            else if(arr[mid]<x)
+            {
+                low=mid+1;
+            }
+            else
+            {
+                if(mid==arr.length-1 || arr[mid+1]!=arr[mid])
+                {
+                    return mid;
+                }
+                else
+                {
+                    low=mid+1;
+                }
+            }
+        }
+        return -1;
+    }
+    int count(int[] arr, int n, int x) {
+        // code here
+        int first=getFirst(arr,0,n-1,x);
+        int second=getSecond(arr,0,n-1,x);
+        if(first==-1 || second==-1)
+        {
+            return 0;
+        }
+        return second-first+1;
+    }
+}
