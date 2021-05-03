@@ -1,0 +1,23 @@
+class Solution
+{
+    public static boolean searching(long arr[],long x)
+    {
+        for (int i=0;i<arr.length;i++)
+        {
+            if(arr[i]==x)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    long solve(int n, long arr[], long b)
+    {
+        // Complete this function
+        while(searching(arr,b)==true)
+        {
+            b=b*2;
+        }
+        return b;
+    }
+}
