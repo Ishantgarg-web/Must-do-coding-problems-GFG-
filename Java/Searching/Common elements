@@ -1,0 +1,47 @@
+class Solution
+{
+    ArrayList<Integer> commonElements(int A[], int B[], int C[], int n1, int n2, int n3) 
+    {
+        // code here 
+        int i=0,j=0;
+        ArrayList<Integer> al=new ArrayList<Integer>();
+        while(i<n1 && j<n2)
+        {
+            if(A[i]<B[j])
+            {
+                i++;
+            }
+            else if(A[i]>B[j])
+            {
+                j++;
+            }
+            else
+            {
+                if(al.size()==0 || (al.size()!=0 && al.get(al.size()-1)!=A[i])){al.add(A[i]);}
+                i++;
+                j++;
+            }
+        }
+        int n=al.size();
+        i=0;j=0;
+        ArrayList<Integer> al1=new ArrayList<Integer>();
+        while(i<n && j<n3)
+        {
+            if(al.get(i)<C[j])
+            {
+                i++;
+            }
+            else if(al.get(i)>C[j])
+            {
+                j++;
+            }
+            else
+            {
+                al1.add(al.get(i));
+                i++;
+                j++;
+            }
+        }
+        return al1;
+    }
+}
