@@ -1,0 +1,15 @@
+class Solution {
+    int countBuildings(int h[], int n) {
+        // code here]
+        int lmax=h[0],count=1;
+        for (int i=1;i<n;i++)
+        {
+            if(h[i]>lmax)
+            {
+                count++;
+            }
+            lmax=(int)Math.max(lmax,h[i]);
+        }
+        return count;
+    }
+}
