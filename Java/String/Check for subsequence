@@ -1,0 +1,28 @@
+// problem link: https://practice.geeksforgeeks.org/problems/check-for-subsequence4930/1#
+
+class Solution{
+    boolean isSubSequence(String s1, String s2){
+        if(s1.length()>s2.length())
+        {
+            return false;
+        }
+        int i=0,j=0;
+        while(i<s2.length() && j<s1.length())
+        {
+            if(s2.charAt(i)==s1.charAt(j))
+            {
+                i++;
+                j++;
+            }
+            else
+            {
+                i++;
+            }
+        }
+        if(j==s1.length())
+        {
+            return true;
+        }
+        return false;
+    }
+}
