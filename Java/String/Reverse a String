@@ -1,0 +1,9 @@
+class Solution {
+    static String revStr(String S) {
+        // code here
+        String str=S;
+        StringBuilder sb =new StringBuilder(str);
+        sb.reverse();
+        return sb.toString();
+    }
+}
