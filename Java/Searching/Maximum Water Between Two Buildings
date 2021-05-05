@@ -1,0 +1,26 @@
+// Problem Link: https://practice.geeksforgeeks.org/problems/maximum-water-between-two-buildings/1/?track=DSASP-Searching&batchId=154
+
+class Solution
+{
+    //Function to return the maximum water that can be stored.
+    static int maxWater(int height[], int n) 
+    { 
+        //Your code here
+        int sum=0;
+        int i=0,j=n-1;
+        while(i<=j)
+        {
+            sum=(int)Math.max(sum,(j-i-1)*(int)Math.min(height[i],height[j]));
+            if(height[i]<height[j])
+            {
+                i++;
+            }
+            else
+            {
+                j--;
+            }
+        }
+        return sum;
+    } 
+
+}
