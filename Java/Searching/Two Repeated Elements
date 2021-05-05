@@ -1,0 +1,31 @@
+class Solution
+{
+    //Function to find two repeated elements.
+    public Pair twoRepeated(int arr[], int N)
+    {
+        // Your code here
+        Pair ans=new Pair();
+        int count=0;
+        for (int i=0;i<N+2;i++)
+        {
+            if(arr[(int)Math.abs(arr[i])]>0)
+            {
+                arr[(int)Math.abs(arr[i])]=-1*arr[(int)Math.abs(arr[i])];
+            }
+            else
+            { 
+                if(count==0)
+                {
+                    ans.first=(int)Math.abs(arr[i]);
+                    count++;
+                }
+                else
+                {
+                    ans.second=(int)Math.abs(arr[i]);
+                }
+            }
+        }
+        return ans;
+    }
+    
+}
