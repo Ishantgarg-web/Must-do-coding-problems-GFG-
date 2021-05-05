@@ -1,0 +1,38 @@
+// Approach1: Using StringBuilder
+
+class Solution {
+    static String conRevstr(String S1, String S2) {
+        // code here
+        String str=S1+S2;
+        StringBuilder sb =new StringBuilder(str);
+        sb.reverse();
+        return sb.toString();
+    }
+}
+
+// Approach2
+
+class Solution {
+    public static void swap(char c[],int l,int h)
+    {
+        char temp=c[l];
+        c[l]=c[h];
+        c[h]=temp;
+    }
+    public static String reverse(char c[])
+    {
+        int low=0,high=c.length-1;
+        while(low<=high)
+        {
+            swap(c,low,high);
+            low++;
+            high--;
+        }
+        return String.valueOf(c);
+    }
+    static String conRevstr(String S1, String S2) {
+        // code here
+        String str=S1+S2;
+        return reverse(str.toCharArray());
+    }
+}
