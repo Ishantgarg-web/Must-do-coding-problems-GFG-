@@ -1,0 +1,18 @@
+class Solution
+{
+   
+    String modify(String S)
+    {
+        // your code here
+        S=S.toLowerCase();
+        String ans="";
+        for (int i=0;i<S.length();i++)
+        {
+            if(S.charAt(i)-'a'>=0 && S.charAt(i)-'a'<=25)
+            {
+                ans=ans+S.charAt(i);
+            }
+        }
+        return ans;
+    }
+}
