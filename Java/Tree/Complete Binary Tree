@@ -1,0 +1,62 @@
+
+// problem Link: https://practice.geeksforgeeks.org/problems/complete-binary-tree/1
+
+/****  APPROACH   
+
+we iterate through level-by-level of given binary tree and where we encounter any childer of current node is null then we add a new node to queue with any value
+that cann't possible i.e., -1. and change flag value to false. it means, if there is any furthur -1 encounter. it means it violates the condition that results
+"Not complete Binary Tree" else it is considered to be "Complete Binary Tree".
+
+******/
+
+class GfG
+{
+	boolean isCompleteBT(Node root)
+    {
+          //add code here.
+          Queue<Node> q=new LinkedList<>();
+          if(root==null) return true;
+          q.add(root);
+          q.add(null);
+          boolean flag=true;
+          while(q.size()>1)
+          {
+              Node curr=q.poll();
+              if(curr==null)
+              {
+                  q.add(null);
+              }
+              else
+              {
+                  if(curr.data!=-1)
+                  {
+                      if(flag==false)
+                      {
+                          return false;
+                      }
+                      if(curr.left==null)
+                      {
+                          q.add(new Node(-1));
+                      }
+                      else
+                      {
+                          q.add(curr.left);
+                      }
+                      if(curr.right==null)
+                      {
+                          q.add(new Node(-1));
+                      }
+                      else
+                      {
+                          q.add(curr.right);
+                      }
+                  }
+                  else
+                  {
+                      flag=false;
+                  }
+              }
+          }
+          return true;
+	} 
+}
