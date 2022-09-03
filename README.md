@@ -24,3 +24,6 @@
 20. You and Your books
 21. Ticket Counter
 
+# if you like this repository, please star this 
+
+# if you want to contribute, please create new issue first
